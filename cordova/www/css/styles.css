@@ -5,7 +5,7 @@ body
   -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
   padding: 0px;
   margin: 0px;
-  background: #000000; /* url('../images/stars.gif'); */
+  background: #000000 url('../images/stars.png');
   background-repeat:repeat;
   height:100%;
   width: 100%;

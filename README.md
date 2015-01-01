@@ -31,7 +31,7 @@ cordova run android
 
 ### History
 
-This simple game was initialy created for desktop browsers long ago, as far as I remember at the end of 2011. It is based on some free tutorials nad it has been developed with HTML5 and pure JavaScript, without any fancy frameworks and libraries. My friend Konstantin Gaytandzhiev created the magnificent graphics. In 2011 versions of the same game were ported to Symbian and MeeGo netbooks and published at application stores under the name Planetoids.
+This simple game was initially created for desktop browsers long ago, as far as I remember at the end of 2011. It is based on some free tutorials and it has been developed with HTML5 and pure JavaScript, without any fancy frameworks and libraries. My friend Konstantin Gaytandzhiev created the magnificent graphics. In 2011 versions of the same game were ported to Symbian and MeeGo netbooks and published at application stores under the name Planetoids.
 
 In January 2015 the project was rebooted, wrapped with Cordova for Android and the source code was released at GitHub under GPLv3.
 
