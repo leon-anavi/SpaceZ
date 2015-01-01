@@ -25,11 +25,12 @@ var app = {
       }
 
       var sUserAgent = window.navigator.userAgent.toLowerCase();
-      console.log('ua: '+sUserAgent);
       if (-1 === sUserAgent.indexOf('mobile'))
       {
         app.bIsTablet = true;
       }
+
+      document.addEventListener("pause", app.handlePause , false);
 
       screen.lockOrientation('portrait');
 
@@ -43,8 +44,16 @@ var app = {
       initCanvas();
     },
 
+    handlePause : function() {
+        if ( ("visible" === document.getElementById('game').style.visibility) &&
+          (false === bIsPaused) )
+        {
+          pause();
+        }
+    },
+
     handleBackHardwareButton : function() {
-      if ( ("visible" ===document.getElementById('game').style.visibility) &&
+      if ( ("visible" === document.getElementById('game').style.visibility) &&
             (false === bIsPaused) )
       {
         pause();
