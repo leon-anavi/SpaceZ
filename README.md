@@ -6,7 +6,7 @@ SpaceZ is an open source HTML5 2D endless space game wrapped with Cordova for mo
 ## Installation
 
 Perform the following steps to get the source code, build and run the game on Android device or emulator:
-* Make sure that you have successfully installed Cordova and Android SDK
+* Make sure that you have successfully installed Cordova and Android SDK.
 * Obtain the source code:
 ```
 git clone https://github.com/leon-anavi/SpaceZ
