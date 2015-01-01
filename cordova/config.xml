@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.anavi.spacez" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>SpaceZ</name>
+    <description>
+    	Space game
+    </description>
+    <author email="leon@anavi.org" href="http://anavi.org">
+        Leon Anavi
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="DisallowOverscroll" value="true" />
+    <icon src="www/res/android/icon/icon-mdpi.png" />
+    <platform name="android">
+      <icon src="www/res/android/icon/icon-ldpi.png" density="ldpi" />
+      <icon src="www/res/android/icon/icon-mdpi.png" density="mdpi" />
+      <icon src="www/res/android/icon/icon-hdpi.png" density="hdpi" />
+      <icon src="www/res/android/icon/icon-xhdpi.png" density="xhdpi" />
+    </platform>
+</widget>

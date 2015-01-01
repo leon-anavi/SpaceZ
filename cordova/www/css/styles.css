@@ -1,0 +1,300 @@
+body
+{
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  padding: 0px;
+  margin: 0px;
+  background: #000000; /* url('../images/stars.gif'); */
+  background-repeat:repeat;
+  height:100%;
+  width: 100%;
+  font-family: Tahoma, Verdana, Arial, Sans-Serif;
+  color: #00AEEF;
+  overflow:hidden;
+}
+
+.app {
+  position:absolute;             /* position in the center of the screen */
+  left:50%;
+  top:50%;
+  height:50px;                   /* text area height */
+  width:225px;                   /* text area width */
+  text-align:center;
+  padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+  margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+  font-size: 16pt;
+}
+
+/* Disable orange outline highlight when something is clicked */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+div:focus,did:active{outline:none}
+
+h1
+{
+  font-size: 20px;
+  color: #FFCC00;
+  font-weight: bold;
+  margin: 0px;
+  font-family: Tahoma, Verdana, Arial, Sans-Serif;
+}
+
+h2
+{
+  font-size: 40px;
+  color: #00AEEF;
+  font-weight: bold;
+  margin: 0px;
+  text-align: center;
+  font-family: Tahoma, Verdana, Arial, Sans-Serif;
+}
+
+h3
+{
+  font-size: 28px;
+  color: #FFFFFF;
+  margin: 0px;
+  text-align: center;
+  font-family: Tahoma, Verdana, Arial, Sans-Serif;
+}
+
+A:link
+{
+  color: #00AEEF;
+  text-decoration: underline;
+  font-weight: normal;
+}
+A:visited
+{
+  color: #00AEEF;
+  text-decoration: underline;
+  font-weight: normal;
+}
+A:active
+{
+  color: #00AEEF;
+  text-decoration: underline;
+  font-weight: normal;
+}
+A:hover
+{
+  color: #00AEEF;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+.divcanvas
+{
+  position:absolute;
+  border-style: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-right:auto;
+  margin-left:auto;
+  z-index: -1;
+  visibility: hidden;
+}
+
+.divlayer
+{
+  position:absolute;
+  border-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  color: #303030;
+  overflow: hidden;
+}
+
+#gamecontrol
+{
+  position:absolute;
+  border-style: none;
+  margin: 10px 0px;
+  padding: 10px 0px;
+  bottom:0;
+  width:100%;
+  height:160px;
+  z-index: 3;
+  visibility: hidden;
+}
+
+#pause
+{
+  position:absolute;
+  border-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.button
+{
+  background: rgba( 0, 0, 0, 0);
+  margin-bottom:10px;
+  border-width:0px;
+  border-style:solid;
+  width: 200px;
+  height: 128px;
+}
+
+.buttonSelect
+{
+  background: rgba( 0, 0, 0, 0);
+  border-width:0px;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonSelectBack
+{
+  background: rgba( 0, 0, 0, 0);
+  border-width:0px;
+  width: 96px;
+  height: 96px;
+}
+
+#buttonPause
+{
+  background: rgba( 70, 130, 180, 0) url('../images/ctrlPause.png') no-repeat left;
+  color: #FFFFFF;
+  border-width:0px;
+  height: 64px;
+  width: 100%;
+  margin: 4px;
+  /* Disable the orange outline when the button is clicked on some devices */
+  -webkit-appearance:none;
+  outline:none;
+}
+
+.buttonMove
+{
+  background: rgba( 70, 130, 180, 0);
+  color: #FFFFFF;
+  border-width:0px;
+  width: 100%;
+  height: 96px;
+}
+
+.buttonFire
+{
+  background: rgba( 70, 130, 180, 0);
+  color: #FFFFFF;
+  border-width:0px;
+  width: 100%;
+  height: 64px;
+  /* Disable the orange outline when the button is clicked on some devices */
+  -webkit-appearance:none;
+  outline:none;
+}
+
+.buttonFire:focus,.buttonFire:active{outline:none}
+
+.divmenupause
+{
+  position:absolute;
+  border-style: none;
+  background: rgba( 20, 20, 20, .6);
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;
+  z-index: 4;
+  margin: 0px;
+  padding: 0px;
+  visibility: hidden;
+}
+
+.buttonPauseMenuClass
+{
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba( 0, 0, 0, 1);
+  color: #FFFFFF;
+  margin-bottom:20px;
+  border-width:0px;
+  border-style:solid;
+  border-radius: 20px 20px / 20px 20px;
+  width: 50%;
+  height: 100px;
+}
+
+.divselect
+{
+  position:absolute;
+  border-style: none;
+  left:0;
+  right:0;
+  top:0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  visibility: hidden;
+  font-size: 18pt;
+}
+
+.spaceshipPropertyPlaceHolder
+{
+  background-color: #202020;
+  border-color: #000000;
+  border-width:1px;
+  border-style:solid;
+  border-radius: 20px 20px / 20px 20px;
+}
+
+.spaceshipProperty
+{
+  border-width:0px;
+  border-style:solid;
+  border-radius: 20px 20px / 20px 20px;
+  background-color: rgb(0,171,239);
+}
+
+.inputbox
+{
+  border-width:2px;
+  border-style:solid;
+  border-color: #00AEEF;
+  border-radius: 4px 4px / 4px 4px;
+  background-color: #202020;
+  color: #00AEEF;
+  font-size: 20pt;
+  width: 200px;
+}
+
+#info {
+  margin: 3em;
+  width: 60%;
+  font-family: Tahoma, Verdana, Arial, Sans-Serif;
+  color: #00AEEF;
+  font-size: 24pt;
+}
+
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.2;}
+}
+
+.blink {
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-animation-direction: alternate;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <title>SpaceZ</title>
+</head>
+<body>
+  <div id="loading" class="app">
+      <p class="blink">Loading...</p>
+  </div>
+
+  <div id="menupause" class="divmenupause" align="center">
+    <button id="buttonPausePlay" class="buttonPauseMenuClass" style="margin-top:80px;"><img src="images/menuPausePlay.png" /></button><br />
+    <button id="buttonPauseMenu" class="buttonPauseMenuClass"><img src="images/menuPauseAbandon.png" /></button>
+  </div>
+
+  <div id="menu" class="divlayer" style="visibility: hidden;" align="center">
+    <div id="title" style="margin:40px;"><img src="images/menuLogo.png" /></div>
+    <button id="play" class="button"><img src="images/menuPlay.png" /></button><br />
+
+    <div id="info" class="blink">
+      <p>A long time ago in a galaxy far, far away an open source game was created.</p>
+      <p>A game free like freedom!</p>
+      <p>Tilt the device to control the spaceship and enjoy your ride, my friend!</p>
+    </div>
+
+    <div id="authors" style="font-size:  14pt; position:absolute; width:100%; bottom: 10px; margin: 0px; padding: 0px; color: #00AEEF;">
+      <div style="float: left; width: 80%;text-align: left;">
+        Created by Leon Anavi &amp; Konstantin Gaytandzhiev<br />
+        <a href="#" id="linkOpenSource">Source code available under GPLv3</a>
+      </div>
+      <div style="float: left; width: 20%; text-align: right;"><br />1.0.0</div>
+    </div>
+  </div>
+
+  <div id="selectSpaceship" class="divselect">
+    <div style="position:absolute; margin-top: 25%; width:100%;" align="center"><button onclick="selectSpaceship();" style="background: rgba( 20, 20, 20, 0);border-width:0px;"><img src="images/spaceship01.jpg" name="imgSpaceship" id="imgSpaceship" /></button></div>
+    <div style="position:absolute; top:0; width: 100%">
+      <button id="selectSpaceshipBack" class="buttonSelectBack" ><img src="images/menuBack.png" /></button>
+    </div>
+    <div style="position:absolute; bottom:110px; width:100%; height:140px;">
+
+      <table border="0" width="60%" align="center" cellspacing="0">
+        <tr>
+          <td width="20%" align="right"><img src="images/spaceshipSpeed.png" /></td>
+          <td width="80%"><div class="spaceshipPropertyPlaceHolder"><div id="spaceshipSpeed" name="spaceshipSpeed" class="spaceshipProperty" style="width: 10%;" >&nbsp;</div></div></td>
+        </tr>
+        <tr>
+          <td width="20%" align="right"><img src="images/spaceshipAmmo.png" /></td>
+          <td width="80%"><div class="spaceshipPropertyPlaceHolder"><div id="spaceshipAmmo" name="spaceshipAmmo" class="spaceshipProperty" style="width: 60%;" >&nbsp;</div></div></td>
+        </tr>
+        <tr>
+          <td width="20%" align="right" ><img src="images/spaceshipHealth.png" /></td>
+          <td width="80%"><div class="spaceshipPropertyPlaceHolder"><div id="spaceshipShield" name="spaceshipShield" class="spaceshipProperty" style="width: 50%;" >&nbsp;</div></div></td>
+        </tr>
+      </table>
+
+      <!--- buttons to select spaceship -->
+      <table border="0" width="100%" cellspacing="0">
+        <tr>
+          <td width="25%"><button id="buttonSelectSpaceshipLeft" class="buttonSelect" onclick="showSpaceship(true);"><img src="images/menuPrev.png" /></button></td>
+          <td width="50%"><button id="buttonSelectSpaceshipOK" class="buttonSelect"><img src="images/menuOk.png" /></button></td>
+          <td width="25%"><button id="buttonSelectSpaceshipRight" class="buttonSelect" onclick="showSpaceship(false);"><img src="images/menuNext.png" /></button></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div id="gameOver" class="divselect" style="visibility: hidden;" align="center">
+    <img name="gameOverMedal" id="gameOverMedal" src="images/medalA.png" />
+    <div name="result" id="result"></div>
+    <div align="center" width="100%">
+
+      <table border="0" cellspacing="4" width="200px" align="center" style="margin-top: 10px;">
+        <tr>
+          <td align="right"><img src="images/medalSmallA.png" /></td>
+          <td align="left">&lt;= 1000</td>
+        </tr>
+        <tr>
+          <td align="right"><img src="images/medalSmallB.png" /></td>
+          <td align="left">1001 - 2500</td>
+        </tr>
+        <tr>
+          <td align="right"><img src="images/medalSmallC.png" /></td>
+          <td align="left">2501 - 5000</td>
+        </tr>
+        <tr>
+          <td align="right"><img src="images/medalSmallD.png" /></td>
+          <td align="left">&gt;= 5001</td>
+        </tr>
+      </table>
+    </div>
+    <div style="position:absolute; bottom:0; width:100%; height:140px;">
+      <button id="gameOverOk" class="button"><img src="images/menuOk.png" /></button>
+    </div>
+  </div>
+
+  <div id="pause">
+    <button id="buttonPause"></button>
+  </div>
+
+  <canvas id="game" class="divcanvas"></canvas>
+
+  <div id="gamecontrol">
+      <button id="buttonFireRight" class="buttonFire" style="float:right;"><img src="images/ctrlBomb.png" style="position: fixed; right: 5px; bottom: 90px;" /></button>
+  </div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script language="javascript" src="js/sprite.js" type="text/javascript"></script>
+  <script language="javascript" src="js/database.js" type="text/javascript" ></script>
+  <script language="javascript" src="js/game.js" type="text/javascript" ></script>
+  <script language="javascript" src="js/motion.js" type="text/javascript" ></script>
+  <script type="text/javascript">
+      app.initialize();
+  </script>
+
+
+</body>
+</html>
