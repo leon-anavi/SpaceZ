@@ -1,6 +1,6 @@
 var motion = {
 
-  nStep: 1,
+  nStep: 0.5,
 
   showError: function(err) {
     console.log('Error: ' + err.message);

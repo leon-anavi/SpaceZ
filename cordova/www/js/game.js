@@ -54,10 +54,13 @@ var Spaceships = [
 		speed: 70,
 		ammo: 50,
 		shield: 50,
-		moveLeft: 10,
-		moveRight: 10,
+
+		//these values will be recalculated depending on the screen size
+		moveLeft: 3,
+		moveRight: 3,
 		moveUp: 6,
 		moveDown: 4,
+
 		ammoPackageBullets: 100,
 		ammoPackageBombs: 1,
 		damagePlanetoid: 40,
@@ -72,8 +75,8 @@ var Spaceships = [
 		speed: 80,
 		ammo: 70,
 		shield: 60,
-		moveLeft: 12,
-		moveRight: 12,
+		moveLeft: 4,
+		moveRight: 4,
 		moveUp: 20,
 		moveDown: 6,
 		ammoPackageBullets: 200,
@@ -90,8 +93,8 @@ var Spaceships = [
 		speed: 90,
 		ammo: 100,
 		shield: 70,
-		moveLeft: 15,
-		moveRight: 15,
+		moveLeft: 5,
+		moveRight: 5,
 		moveUp: 26,
 		moveDown: 7,
 		ammoPackageBullets: 250,
@@ -104,7 +107,6 @@ var Spaceships = [
 ];
 
 var nSelectedSpaceship = 0;
-loadSpaceship();
 
 //difficulty
 var nPntPerDestPlanet = 2;
@@ -171,11 +173,28 @@ function initCanvas() {
 	nPlayerStartPosX = Math.round(nCanvasWidth/2) - Math.round(nPlayerWidth/2);
 	nPlayerStartPosY = nCanvasHeight -  Math.round(1.5*nPlayerHeight);
 
+	calculateSpaceshipMovementSteps();
+	loadSpaceship();
+
 	var canvasElement = document.getElementById('game');
 	//expand canvas to the whole screen minus height for the game ctrl height
 	canvasElement.setAttribute('width', nCanvasWidth);
 	canvasElement.setAttribute('height', nCanvasHeight);
 	canvas = canvasElement.getContext('2d');
+}
+
+function calculateSpaceshipMovementSteps() {
+	var nCoef = nCanvasWidth/240;
+	if (1 >= nCoef) {
+		//nothing to recalculate
+		return;
+	}
+
+	for (var nShip = 0; nShip < Spaceships.length; nShip++) {
+		var nStep = Math.round(Spaceships[nShip].moveLeft * nCoef);
+		Spaceships[nShip].moveLeft = nStep;
+		Spaceships[nShip].moveRight = nStep;
+	}
 }
 
 function getScreenSize() {
