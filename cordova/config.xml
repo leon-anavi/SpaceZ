@@ -7,6 +7,7 @@
     <author email="leon@anavi.org" href="http://anavi.org">
         Leon Anavi
     </author>
+    <preference name="fullscreen" value="true" />
     <content src="index.html" />
     <access origin="*" />
     <preference name="DisallowOverscroll" value="true" />

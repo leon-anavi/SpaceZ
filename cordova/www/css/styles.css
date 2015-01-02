@@ -12,6 +12,7 @@ body
   font-family: Tahoma, Verdana, Arial, Sans-Serif;
   color: #00AEEF;
   overflow:hidden;
+  font-size: 12pt;
 }
 
 .app {
@@ -279,12 +280,34 @@ A:hover
   width: 200px;
 }
 
+#authors {
+  position:absolute;
+  width:100%;
+  bottom: 10px;
+  margin: 0px;
+  padding: 0px;
+  color: #00AEEF;
+  font-size:  120%;
+}
+
+#authorsLeft {
+  float: left;
+  width: 80%;
+  text-align: left;
+}
+
+#authorsRight {
+  float: left;
+  width: 20%;
+  text-align: right;
+}
+
 #info {
   margin: 3em;
   width: 60%;
   font-family: Tahoma, Verdana, Arial, Sans-Serif;
   color: #00AEEF;
-  font-size: 24pt;
+  font-size: 180%;
 }
 
 @-webkit-keyframes blinker {

@@ -48,9 +48,60 @@ var nConfigAmmoBombsInterval = 60000;
 var nHealthRecoverInterval = 600;
 
 //spaceships
-var Spaceships=[{image: "spaceshipLarge01.png", imageGame: "spaceship01", speed: 70, ammo: 50, shield: 50, moveLeft: 10, moveRight: 15, moveUp: 6, moveDown: 4, ammoPackageBullets: 100, ammoPackageBombs: 1, damagePlanetoid: 40, damageAsteroid: 33, damageSpaceJunk: 20, damageMeteorite: 33},
-				{image: "spaceshipLarge02.png", imageGame: "spaceship02", speed: 80, ammo: 70, shield: 60, moveLeft: 12, moveRight: 18, moveUp: 20, moveDown: 6, ammoPackageBullets: 200, ammoPackageBombs: 2, damagePlanetoid: 33, damageAsteroid: 25, damageSpaceJunk: 15, damageMeteorite: 25},
-			{image: "spaceshipLarge03.png", imageGame: "spaceship03", speed: 90, ammo: 100, shield: 70, moveLeft: 15, moveRight: 21, moveUp: 26, moveDown: 7, ammoPackageBullets: 250, ammoPackageBombs: 3, damagePlanetoid: 25, damageAsteroid: 20, damageSpaceJunk: 10, damageMeteorite: 20}];
+var Spaceships = [
+	{ image: "spaceshipLarge01.png",
+		imageGame: "spaceship01",
+		speed: 70,
+		ammo: 50,
+		shield: 50,
+		moveLeft: 10,
+		moveRight: 10,
+		moveUp: 6,
+		moveDown: 4,
+		ammoPackageBullets: 100,
+		ammoPackageBombs: 1,
+		damagePlanetoid: 40,
+		damageAsteroid: 33,
+		damageSpaceJunk: 20,
+		damageMeteorite: 33
+	},
+
+	{
+		image: "spaceshipLarge02.png",
+		imageGame: "spaceship02",
+		speed: 80,
+		ammo: 70,
+		shield: 60,
+		moveLeft: 12,
+		moveRight: 12,
+		moveUp: 20,
+		moveDown: 6,
+		ammoPackageBullets: 200,
+		ammoPackageBombs: 2,
+		damagePlanetoid: 33,
+		damageAsteroid: 25,
+		damageSpaceJunk: 15,
+		damageMeteorite: 25
+	},
+
+	{
+		image: "spaceshipLarge03.png",
+		imageGame: "spaceship03",
+		speed: 90,
+		ammo: 100,
+		shield: 70,
+		moveLeft: 15,
+		moveRight: 15,
+		moveUp: 26,
+		moveDown: 7,
+		ammoPackageBullets: 250,
+		ammoPackageBombs: 3,
+		damagePlanetoid: 25,
+		damageAsteroid: 20,
+		damageSpaceJunk: 10,
+		damageMeteorite: 20
+	}
+];
 
 var nSelectedSpaceship = 0;
 loadSpaceship();
@@ -106,8 +157,16 @@ Number.prototype.clamp = function(min, max) {
 
 function initCanvas() {
 	var screenSize = getScreenSize();
-	nCanvasWidth = screenSize.width;
-	nCanvasHeight = screenSize.height;
+	if (screenSize.height >= screenSize.width) {
+		nCanvasWidth = screenSize.width;
+		nCanvasHeight = screenSize.height;
+	}
+	else {
+		//if the app was started in landscape mode
+		//and after that has been automatically rotated to portrait
+		nCanvasWidth = screenSize.height;
+		nCanvasHeight = screenSize.width;
+	}
 
 	nPlayerStartPosX = Math.round(nCanvasWidth/2) - Math.round(nPlayerWidth/2);
 	nPlayerStartPosY = nCanvasHeight -  Math.round(1.5*nPlayerHeight);
@@ -250,22 +309,6 @@ function gpop()
 //Listen for touch events
 document.addEventListener('touchend', handleTouchEventEnd, true);
 var coordinates = [];
-
-function initFastButtons()
-{
-	new FastButton(document.getElementById("buttonLeft"),
-					function(){handleTouchEventStart("buttonLeft")});
-
-	new FastButton(document.getElementById("buttonRight"),
-					function(){handleTouchEventStart("buttonRight")});
-
-	new FastButton(document.getElementById("buttonUp"),
-					function(){handleTouchEventStart("buttonUp")});
-
-	new FastButton(document.getElementById("buttonDown"),
-					function(){handleTouchEventStart("buttonDown")});
-};
-//------------------------------------------------------------------------------
 
 function handleTouchEventEnd()
 {
