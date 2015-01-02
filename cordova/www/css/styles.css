@@ -146,7 +146,7 @@ A:hover
 .button
 {
   background: rgba( 0, 0, 0, 0);
-  margin-bottom:10px;
+  margin:0;
   border-width:0px;
   border-style:solid;
   width: 200px;
@@ -287,7 +287,6 @@ A:hover
   margin: 0px;
   padding: 0px;
   color: #00AEEF;
-  font-size:  120%;
 }
 
 #authorsLeft {
@@ -302,8 +301,12 @@ A:hover
   text-align: right;
 }
 
+#title {
+  margin: 5%;
+}
+
 #info {
-  margin: 3em;
+  margin: 2em 3em 3em;
   width: 60%;
   font-family: Tahoma, Verdana, Arial, Sans-Serif;
   color: #00AEEF;
