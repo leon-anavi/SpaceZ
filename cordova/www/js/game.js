@@ -49,60 +49,67 @@ var nHealthRecoverInterval = 600;
 
 //spaceships
 var Spaceships = [
-	{ image: "spaceshipLarge01.png",
-		imageGame: "spaceship01",
-		speed: 70,
-		ammo: 50,
-		shield: 50,
+	{
+		image : "spaceshipLarge01.png",
+		imageGame : "spaceship01",
+		speed : 70,
+		ammo : 50,
+		shield : 50,
 
 		//these values will be recalculated depending on the screen size
-		moveLeft: 3,
-		moveRight: 3,
-		moveUp: 6,
-		moveDown: 4,
+		moveLeft : 3,
+		moveRight : 3,
+		moveUp : 6,
+		moveDown : 4,
 
-		ammoPackageBullets: 100,
-		ammoPackageBombs: 1,
-		damagePlanetoid: 40,
-		damageAsteroid: 33,
-		damageSpaceJunk: 20,
-		damageMeteorite: 33
+		ammoPackageBullets : 100,
+		ammoPackageBombs : 1,
+		damagePlanetoid : 40,
+		damageAsteroid : 33,
+		damageSpaceJunk : 20,
+		damageMeteorite : 33,
+
+		bulletColor : "#a8cd00"
 	},
 
 	{
-		image: "spaceshipLarge02.png",
-		imageGame: "spaceship02",
-		speed: 80,
-		ammo: 70,
-		shield: 60,
-		moveLeft: 4,
-		moveRight: 4,
-		moveUp: 20,
-		moveDown: 6,
-		ammoPackageBullets: 200,
-		ammoPackageBombs: 2,
-		damagePlanetoid: 33,
-		damageAsteroid: 25,
-		damageSpaceJunk: 15,
-		damageMeteorite: 25
+		image : "spaceshipLarge02.png",
+		imageGame : "spaceship02",
+		speed : 80,
+		ammo : 70,
+		shield : 60,
+		moveLeft : 4,
+		moveRight : 4,
+		moveUp : 20,
+		moveDown : 6,
+		ammoPackageBullets : 200,
+		ammoPackageBombs : 2,
+		damagePlanetoid : 33,
+		damageAsteroid : 25,
+		damageSpaceJunk : 15,
+		damageMeteorite : 25,
+
+		bulletColor : "#CC3333"
 	},
 
 	{
-		image: "spaceshipLarge03.png",
-		imageGame: "spaceship03",
-		speed: 90,
-		ammo: 100,
-		shield: 70,
-		moveLeft: 5,
-		moveRight: 5,
-		moveUp: 26,
-		moveDown: 7,
-		ammoPackageBullets: 250,
-		ammoPackageBombs: 3,
-		damagePlanetoid: 25,
-		damageAsteroid: 20,
-		damageSpaceJunk: 10,
-		damageMeteorite: 20
+		image : "spaceshipLarge03.png",
+		imageGame : "spaceship03",
+		speed : 90,
+		ammo : 100,
+		shield : 70,
+		moveLeft : 5,
+		moveRight : 5,
+		moveUp : 26,
+		moveDown : 7,
+		ammoPackageBullets : 250,
+		ammoPackageBombs : 3,
+		damagePlanetoid : 25,
+		damageAsteroid : 20,
+		damageSpaceJunk : 10,
+		damageMeteorite : 20,
+
+		bulletColor : "#00AEEF"
 	}
 ];
 
@@ -139,6 +146,8 @@ var bCanDropBomb = true;
 var bIsPaused = false;
 
 var canvas = null;
+
+var sBulletColor = "#E80000";
 
 /**
 * Returns a number whose value is limited to the given range.
@@ -450,6 +459,8 @@ function loadSpaceship()
 
 	nAmmoBulletsPackage = Spaceships[nSelectedSpaceship].ammoPackageBullets;
 	nAmmoBombsPackage = Spaceships[nSelectedSpaceship].ammoPackageBombs;
+
+	sBulletColor = Spaceships[nSelectedSpaceship].bulletColor;
 }
 //------------------------------------------------------------------------------
 
@@ -666,7 +677,7 @@ function CreateBullet(Item)
 	Item.yVelocity = -Item.speed;
 	Item.width = 4;
 	Item.height = 4;
-	Item.color = "#E80000";
+	Item.color = sBulletColor;
 
 	Item.inBounds = function()
 	{
@@ -706,7 +717,7 @@ function CreateBomb(Item)
 	Item.yVelocity = -Item.speed;
 	Item.width = nCanvasWidth;
 	Item.height = 2;
-	Item.color = "#00AEEF";
+	Item.color = sBulletColor;
 
 	Item.inBounds = function()
 	{
