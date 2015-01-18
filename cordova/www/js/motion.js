@@ -7,8 +7,7 @@ var motion = {
   },
 
   motionDetected: function(event) {
-    if (true === bIsPaused)
-    {
+    if (true === bIsPaused) {
       return;
     }
 
@@ -16,17 +15,17 @@ var motion = {
     var nDeviceX = (acc.x) ? acc.x : 0;
 
     if (true === app.bIsTablet) {
-      console.log('motion tablet');
       nDeviceX = (acc.y) ? acc.y : 0;
     }
 
-    if (nDeviceX > motion.nStep)
-    {
-      goLeft();
+    if (nDeviceX > motion.nStep) {
+      movementLeft();
     }
-    else if (nDeviceX < (-1*motion.nStep))
-    {
-      goRight();
+    else if (nDeviceX < (-1*motion.nStep)) {
+      movementRight();
+    }
+    else {
+      movementStop();
     }
   },
 

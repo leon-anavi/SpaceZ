@@ -11,7 +11,7 @@ var nSpaceshipStepLeft = 60;
 var nSpaceshipStepRight = 60;
 var nSpaceshipStepUp = 6;
 var nSpaceshipStepDown = 3;
-var nFrameRate = 30;
+var nFrameRate = 24;
 
 //config limits for medals
 var nResLimit1 = 1000;
@@ -52,13 +52,13 @@ var Spaceships = [
 	{
 		image : "spaceshipLarge01.png",
 		imageGame : "spaceship01",
-		speed : 70,
+		speed : 80,
 		ammo : 50,
 		shield : 50,
 
 		//these values will be recalculated depending on the screen size
-		moveLeft : 3,
-		moveRight : 3,
+		moveLeft : 2,
+		moveRight : 2,
 		moveUp : 6,
 		moveDown : 4,
 
@@ -78,8 +78,8 @@ var Spaceships = [
 		speed : 80,
 		ammo : 70,
 		shield : 60,
-		moveLeft : 4,
-		moveRight : 4,
+		moveLeft : 2,
+		moveRight : 2,
 		moveUp : 20,
 		moveDown : 6,
 		ammoPackageBullets : 200,
@@ -95,11 +95,11 @@ var Spaceships = [
 	{
 		image : "spaceshipLarge03.png",
 		imageGame : "spaceship03",
-		speed : 90,
+		speed : 80,
 		ammo : 100,
 		shield : 70,
-		moveLeft : 5,
-		moveRight : 5,
+		moveLeft : 2,
+		moveRight : 2,
 		moveUp : 26,
 		moveDown : 7,
 		ammoPackageBullets : 250,
@@ -334,12 +334,9 @@ function gpop()
 };
 //------------------------------------------------------------------------------
 
-//Listen for touch events
-document.addEventListener('touchend', handleTouchEventEnd, true);
 var coordinates = [];
 
-function handleTouchEventEnd()
-{
+function movementStop() {
 	//disable all
 	bGoLeft = false;
 	bGoRight = false;
@@ -348,37 +345,20 @@ function handleTouchEventEnd()
 };
 //------------------------------------------------------------------------------
 
-function handleTouchEventStart(sElementName)
-{
-	if ('buttonLeft' == sElementName)
-	{
-		bGoLeft = true;
-		bGoRight = false;
-		bGoUp = false;
-		bGoDown = false;
-	}
-	else if ('buttonRight' == sElementName)
-	{
-		bGoLeft = false;
-		bGoRight = true;
-		bGoUp = false;
-		bGoDown = false;
-	}
-	else if ('buttonUp' == sElementName)
-	{
-		bGoLeft = false;
-		bGoRight = false;
-		bGoUp = true;
-		bGoDown = false;
-	}
-	else if ('buttonDown' == sElementName)
-	{
-		bGoLeft = false;
-		bGoRight = false;
-		bGoUp = false;
-		bGoDown = true;
-	}
-};
+function movementLeft() {
+	bGoLeft = true;
+	bGoRight = false;
+	bGoUp = false;
+	bGoDown = false;
+}
+//------------------------------------------------------------------------------
+
+function movementRight() {
+	bGoLeft = false;
+	bGoRight = true;
+	bGoUp = false;
+	bGoDown = false;
+}
 //------------------------------------------------------------------------------
 
 function randomFromTo(nFrom, nTo)
