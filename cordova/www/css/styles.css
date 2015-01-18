@@ -90,7 +90,7 @@ A:hover
   font-weight: normal;
 }
 
-.divcanvas
+#game
 {
   position:absolute;
   border-style: none;
@@ -306,11 +306,17 @@ A:hover
 }
 
 #info {
-  margin: 2em 3em 3em;
+  margin: 1em;
   width: 60%;
   font-family: Tahoma, Verdana, Arial, Sans-Serif;
   color: #00AEEF;
   font-size: 180%;
+}
+
+@media screen and (max-width: 600px){
+  #info {
+    font-size: 120%;
+  }
 }
 
 @-webkit-keyframes blinker {
