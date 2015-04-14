@@ -18,6 +18,7 @@ cordova plugin add net.yoik.cordova.plugins.screenorientation
 cordova plugin add org.apache.cordova.device
 cordova plugin add org.apache.cordova.inappbrowser
 cordova plugin add org.apache.cordova.vibration
+cordova plugin add com.mediamatrixdoo.keepscreenon
 ```
 * Add support for Android:
 ```
